@@ -5,6 +5,7 @@ import Sistema.ProdutosDTO;
 import Sistema.ProdutosDAO;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -22,7 +23,28 @@ public class listagemVIEW extends javax.swing.JFrame {
      */
     public listagemVIEW() {
         initComponents();
-      //  listarProdutos();
+      DefaultTableModel model = (DefaultTableModel) listaProdutos.getModel();
+        listaProdutos.setRowSorter(new TableRowSorter(model));
+        listandoProdutos();
+    }
+ public void listandoProdutos(){
+        
+            
+            DefaultTableModel model = (DefaultTableModel) listaProdutos.getModel();
+            model.setNumRows(0);
+            ProdutosDAO produtosdao = new ProdutosDAO();
+           
+            
+            //List<ProdutosDTO> listagem = produtosdao.listarProdutos();
+            
+            for(ProdutosDTO produto : produtosdao.listarProdutos()){
+                model.addRow(new Object[]{
+                    produto.getId(),
+                    produto.getNome(),
+                    produto.getValor(),
+                    produto.getStatus()
+                });
+            }
     }
 
     /**
@@ -140,12 +162,16 @@ public class listagemVIEW extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVenderActionPerformed
-        String id = id_produto_venda.getText();
-        
-        ProdutosDAO produtosdao = new ProdutosDAO();
-        
-        //produtosdao.venderProduto(Integer.parseInt(id));
-       // listarProdutos();
+       if(id_produto_venda.getText() != null){
+        ProdutosDTO produto = new ProdutosDTO();
+        ProdutosDAO dao = new ProdutosDAO();
+        produto.setStatus("Vendido");
+        listandoProdutos();
+        produto.setId(Integer.parseInt(id_produto_venda.getText()));
+        dao.update(produto);
+        listandoProdutos();
+        id_produto_venda.setText("");
+      }
     }//GEN-LAST:event_btnVenderActionPerformed
 
     private void btnVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVendasActionPerformed
