@@ -7,15 +7,8 @@ import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+//@Author:Tainá Oliveira
 
-/**
- *
- * @author Adm
- */
 public class listagemVIEW extends javax.swing.JFrame {
 
     /**
