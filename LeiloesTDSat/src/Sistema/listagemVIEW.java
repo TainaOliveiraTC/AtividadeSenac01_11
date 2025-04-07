@@ -1,4 +1,8 @@
+package Sistema;
 
+
+import Sistema.ProdutosDTO;
+import Sistema.ProdutosDAO;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 
@@ -18,7 +22,7 @@ public class listagemVIEW extends javax.swing.JFrame {
      */
     public listagemVIEW() {
         initComponents();
-        listarProdutos();
+      //  listarProdutos();
     }
 
     /**
@@ -141,7 +145,7 @@ public class listagemVIEW extends javax.swing.JFrame {
         ProdutosDAO produtosdao = new ProdutosDAO();
         
         //produtosdao.venderProduto(Integer.parseInt(id));
-        listarProdutos();
+       // listarProdutos();
     }//GEN-LAST:event_btnVenderActionPerformed
 
     private void btnVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVendasActionPerformed
@@ -201,7 +205,7 @@ public class listagemVIEW extends javax.swing.JFrame {
     private javax.swing.JTable listaProdutos;
     // End of variables declaration//GEN-END:variables
 
-    private void listarProdutos(){
+  /*  private void listarProdutos(){
         try {
             ProdutosDAO produtosdao = new ProdutosDAO();
             
@@ -221,5 +225,5 @@ public class listagemVIEW extends javax.swing.JFrame {
         } catch (Exception e) {
         }
     
-    }
+    }*/
 }
