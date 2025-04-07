@@ -172,6 +172,7 @@ public class listagemVIEW extends javax.swing.JFrame {
         listandoProdutos();
         id_produto_venda.setText("");
       }
+       // ||Botão de Vendas Funcionando;
     }//GEN-LAST:event_btnVenderActionPerformed
 
     private void btnVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVendasActionPerformed
