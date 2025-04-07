@@ -1,6 +1,10 @@
 package Sistema;
 
 //@Author:Tainá Oliveira
+import Sistema.ProdutosDTO;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
+
 
 public class vendasVIEW extends javax.swing.JFrame {
 
@@ -9,6 +13,30 @@ public class vendasVIEW extends javax.swing.JFrame {
      */
     public vendasVIEW() {
         initComponents();
+        DefaultTableModel model = (DefaultTableModel) listaProdutosvendidos.getModel();
+        listaProdutosvendidos.setRowSorter(new TableRowSorter(model));
+        ProdutosDTO produtos = new ProdutosDTO();
+        consultaprodutosvendidos();
+        
+    }
+public void consultaprodutosvendidos() {
+         DefaultTableModel model = (DefaultTableModel) listaProdutosvendidos.getModel();
+        model.setNumRows(0);
+         ProdutosDAO produtosdao = new ProdutosDAO();
+           
+            
+            //List<ProdutosDTO> listagem = produtosdao.listarProdutos();
+            
+            for(ProdutosDTO produto : produtosdao.consultaprodutosvendidos()){
+                model.addRow(new Object[]{
+                    produto.getId(),
+                    produto.getNome(),
+                    produto.getValor(),
+                    produto.getStatus()
+                });
+            }
+            
+            
     }
 
     /**
