@@ -4,15 +4,8 @@ package Sistema;
 import Sistema.ProdutosDTO;
 import Sistema.ProdutosDAO;
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+//@Author:Tainá Oliveira
 
-/**
- *
- * @author Adm
- */
 public class cadastroVIEW extends javax.swing.JFrame {
 
     /**

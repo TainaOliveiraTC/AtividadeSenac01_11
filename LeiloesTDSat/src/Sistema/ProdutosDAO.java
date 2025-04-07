@@ -75,7 +75,8 @@ public class ProdutosDAO {
           }catch(SQLException ex){JOptionPane.showMessageDialog(null, "Error:(" + ex);}
     }
  
-     public List<ProdutosDTO> consulta(int id){
+    
+       public List<ProdutosDTO> consulta(int id){
         Connection con = conectaDAO.connectDB();
         PreparedStatement stmt = null;
         ResultSet rs = null;
@@ -103,5 +104,35 @@ public class ProdutosDAO {
             return produtos;
     
     }
+     
+  public List<ProdutosDTO> consultaprodutosvendidos(){
+        Connection con = conectaDAO.connectDB();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        List<ProdutosDTO> produtos = new ArrayList<>();
+        try{
+        stmt = con.prepareStatement("SELECT * FROM produtos WHERE status LIKE 'Vendido'");
+        rs = stmt.executeQuery();
+        
+        while(rs.next()){
+            
+            ProdutosDTO produtosdao = new ProdutosDTO();
+            produtosdao.setId(rs.getInt("id"));
+            produtosdao.setNome(rs.getString("nome"));
+            produtosdao.setValor(rs.getInt("valor"));
+            produtosdao.setStatus(rs.getString("status"));
+            produtos.add(produtosdao);
+
+        }
+        
+        
+        }catch(SQLException ex){
+          JOptionPane.showMessageDialog(null, "Error:(" + ex);
+        }
+            return produtos;
+    
+    }
+    
+        
     
 }
